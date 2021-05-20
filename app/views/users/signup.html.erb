@@ -1,0 +1,57 @@
+<div class="login-main-container">
+    <div class="login-left-area">
+        <ul>
+            <li>
+                <i class="bi bi-search"></i>
+                <span>Follow your interests</span>
+            </li>
+            <li>
+                <i class="bi bi-people"></i>
+                <span>Hear what people are talking about</span>
+            </li>
+            <li>
+                <i class="bi bi-chat"></i>
+                <span>Join the conversation</span>
+            </li>
+        </ul>
+
+
+    </div>
+    <div class="login-right-area">
+        <div class="content">
+            <div class="logo-container">
+                <i class="bi bi-twitter"></i>
+            </div>
+            <h3>
+                See what's happening in the world right now
+            </h3>
+            <h4>
+                Join Twitter today
+            </h4>
+
+            <div class="login-form-container">
+                <%= form_with url: "/" do |form| %>
+                <div class="form-control">
+                    <%= form.text_field :email, placeholder:"Email", class:"login-field" %>
+                </div>
+                <div class="form-control">
+                    <%= form.text_field :username, placeholder:"Username", class:"login-field" %>
+                </div>
+                <div class="form-control">
+                    <%= form.text_field :password, placeholder:"Password", class:"login-field" %>
+                </div>
+                <div>
+                    <div class="form-control submit">
+                        <div class="btn-wrapper">
+                            <%= form.submit "Signup", class:"login-submit-btn" %>
+
+                        </div>
+                        <div class="signup-link-details">
+                            <span>Have an account ?</span>
+                            <%= link_to "Login", login_path, class:"signup-link" %>
+                        </div>
+                    </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>

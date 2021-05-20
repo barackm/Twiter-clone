@@ -1,0 +1,71 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+@import "colors";
+.home-main-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  .home-header-container {
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    height: 55px;
+    border-bottom: 1px solid $light;
+    background-color: $white;
+    align-items: center;
+    top: 0;
+    .image-text-wrapper {
+      margin-left: 15px;
+      .header-text {
+        font-weight: bold;
+        font-size: 20px;
+      }
+    }
+
+    .header-top-tweets-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      border-radius: 50%;
+      margin-right: 5px;
+      svg {
+        width: 23px;
+        height: 23px;
+        g {
+          path {
+            fill: $primary;
+          }
+        }
+      }
+
+      &:hover {
+        background-color: lighten($primary, 40%);
+      }
+    }
+  }
+
+  .home-content-area {
+    height: 3000px;
+
+    .home-new-tweet-input-area {
+      display: flex;
+      .new-tweet-container {
+        display: flex;
+        align-items: center;
+
+        .image-wrapper {
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
