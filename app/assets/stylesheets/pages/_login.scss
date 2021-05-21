@@ -3,14 +3,14 @@
 .login-main-container {
   display: flex;
   flex-direction: row;
-  height: 100%;
   overflow-y: auto;
-  position: absolute;
+  position: fixed;
   width: 100%;
   left: 0;
   right: 0;
   bottom: 0;
   overflow-y: auto;
+  height: 100%;
   .login-left-area {
     flex: 1;
     height: 100%;

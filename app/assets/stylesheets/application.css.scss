@@ -42,6 +42,7 @@
       align-items: center;
       margin: 0 10px;
       padding: 15px 15px;
+      margin-top: 40px;
       border-radius: 50px;
       justify-content: space-between;
       .profile-image-container {
@@ -83,6 +84,7 @@
   .main-navbar-container {
     padding: 50px 0;
     display: flex;
+    padding-bottom: 10px;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
@@ -166,16 +168,28 @@
     flex: 1;
     display: flex;
     overflow-y: auto;
-    .yield-app-main-wrappar {
+    overflow-x: hidden;
+    .yield-app-main-wrapper {
       flex: 1;
     }
     .search-main-wrapper {
       width: 38%;
       border-left: 1px solid $light;
-      height: 100%;
       position: sticky;
-      right: 0;
+      padding: 20px;
+      overflow-y: auto;
       top: 0;
+      flex-shrink: 0;
+      margin-bottom: 0px;
+      margin-left: 0px;
+      margin-right: 0px;
+      margin-top: 0px;
+      min-height: 0px;
+      min-width: 0px;
+      padding-bottom: 0px;
+      padding-left: 0px;
+      padding-right: 0px;
+      padding-top: 0px;
     }
   }
 }

@@ -22,17 +22,34 @@
                         <img src="https://pbs.twimg.com/profile_images/1387328259424194560/M2y5iSup_normal.jpg" alt="profile" />
                     </div>
                 </div>
-                <%= form_with do |form| %>
                 <div class="input-details-main-wrapper">
+                    <%= form_with url: "/tweets", method: :post do |form| %>
                     <div class="input-text-area-wrapper">
                         <%= form.text_area :message, placeholder:"What's happening?",class:"new-tweet-home-input-form" %>
                     </div>
                     <div class="form-controls">
+                        <div class="tweet-form-media">
+                            <div class="tweet-media-items">
+                                <div class="tweet-media-items">
+                                    <i class="bi bi-image"></i>
+                                </div>
+                                <div class="tweet-media-items">
+                                    <i class="bi bi-emoji-smile"></i>
+                                </div>
+                            </div>
+                            <%= form.submit "Tweet", class:"tweet-form-submit-btn" %>
 
+                        </div>
                     </div>
+                    <% end %>
                 </div>
-                <% end %>
             </div>
         </div>
-    </div>
+        <div class="tweets-main-container-area">
+            <%= render "shared/tweet", images: ["https://images.pexels.com/photos/2397414/pexels-photo-2397414.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"] %>
+            <%= render "shared/tweet", images: []%>
+            <%= render "shared/tweet", images: ["https://images.pexels.com/photos/2739013/pexels-photo-2739013.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940","https://images.pexels.com/photos/2876511/pexels-photo-2876511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"]%>
+        </div>
 </section>
+
+<%= javascript_pack_tag 'input' %>

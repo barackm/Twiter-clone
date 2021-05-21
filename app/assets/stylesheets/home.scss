@@ -49,21 +49,249 @@
   }
 
   .home-content-area {
-    height: 3000px;
-
+    width: 100%;
+    background-color: $white-light;
     .home-new-tweet-input-area {
       display: flex;
+      width: 100%;
+      border-bottom: 1px solid $light;
+      background-color: $white;
       .new-tweet-container {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
 
+        padding: 5px 15px;
+        width: 100%;
         .image-wrapper {
-          width: 44px;
-          height: 44px;
+          width: 50px;
+          height: 50px;
           border-radius: 50%;
           overflow: hidden;
           display: flex;
           justify-content: center;
+
+          .image-container {
+            width: 100%;
+            height: 100%;
+            img {
+              height: 100%;
+              width: 100%;
+            }
+          }
+        }
+
+        .input-details-main-wrapper {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          padding-left: 15px;
+          padding-top: 15px;
+          .input-text-area-wrapper {
+            width: 100%;
+
+            .new-tweet-home-input-form {
+              width: 100%;
+              border: none;
+              outline: none;
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+                sans-serif;
+              font-size: 18px;
+              min-height: 1em;
+              max-height: 80vh;
+              width: 100%;
+            }
+          }
+
+          .form-controls {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            padding: 8px 0;
+            margin-top: 20px;
+            padding-bottom: 5px;
+            border-top: 1px solid $light;
+            .tweet-form-media {
+              width: 100%;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+
+              .tweet-media-items {
+                display: flex;
+                align-items: center;
+                .tweet-media-items {
+                  width: 38px;
+                  height: 38px;
+                  border-radius: 50%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  cursor: pointer;
+                  &:hover {
+                    background-color: lighten($primary, 40%);
+                  }
+                  i {
+                    color: $primary;
+                    font-size: 20px;
+                  }
+                }
+              }
+            }
+
+            .tweet-form-submit-btn {
+              background-color: $primary;
+              color: $white;
+              padding: 12px 16px;
+              border-radius: 30px;
+              cursor: pointer;
+              font-weight: bold;
+              border: none;
+              &:hover {
+                background-color: lighten($primary, 5%);
+              }
+            }
+          }
+        }
+      }
+    }
+    .tweets-main-container-area {
+      margin-top: 10px;
+    }
+    .tweet-item-main-container {
+      background-color: $white;
+      border-top: 1px solid $light;
+      padding: 10px 20px;
+
+      &:hover {
+        background-color: darken($white-light, 0.1%);
+      }
+      .tweet-item-wrapper {
+        display: flex;
+        .tweet-user-profile-container {
+          width: 60px;
+          .tweet-user {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            overflow: hidden;
+            .image {
+              width: 100%;
+              height: 100%;
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+        }
+        .tweet-detail-main-container {
+          flex: 1;
+          .tweet-header-main-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            align-items: flex-start;
+            .tweet-more-details {
+              cursor: pointer;
+            }
+            .user-name-history {
+              display: flex;
+              align-items: flex-start;
+
+              .user-name {
+                display: flex;
+                align-items: flex-start;
+                h3 {
+                  margin: 0;
+                  font-weight: bold;
+                  font-size: 18px;
+                  margin-right: 10px;
+                }
+                span {
+                  color: lighten($dark, 50%);
+                  margin: 0;
+                  font-size: 18px;
+                }
+              }
+
+              .tweet-history {
+                color: lighten($dark, 50%);
+                margin-left: 15px;
+                margin-top: 0;
+                margin-bottom: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-top: 3px;
+              }
+            }
+          }
+          .tweet-body {
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 20px;
+            cursor: pointer;
+            .tweet-images-container {
+              display: grid;
+              grid-template-columns: repeat(1, 1fr);
+              margin: 20px 0;
+              .tweet-image-item {
+                width: 100%;
+                height: 18rem;
+                border-radius: 20px;
+                overflow: hidden;
+                border: 1px solid $light;
+                img {
+                  width: 100%;
+                  height: 100%;
+                }
+              }
+
+              &.two {
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 2px;
+                .tweet-image-item {
+                  border-radius: 0;
+                  height: 15rem;
+                  &:nth-child(1) {
+                    border-bottom-left-radius: 20px;
+                    border-top-left-radius: 20px;
+                  }
+                  &:nth-child(2) {
+                    border-bottom-right-radius: 20px;
+                    border-top-right-radius: 20px;
+                  }
+                }
+              }
+            }
+          }
+          .tweet-footer {
+            margin-top: 15px;
+            display: flex;
+            .footer-item {
+              display: flex;
+              align-items: center;
+              cursor: pointer;
+              margin-right: 6rem;
+              i {
+                color: lighten($dark, 30px);
+              }
+              svg {
+                width: 20px;
+                height: 20px;
+                path {
+                  fill: lighten($dark, 30px);
+                }
+              }
+              span {
+                font-size: 0.8rem;
+                display: inline-block;
+                margin-left: 0.7rem;
+              }
+            }
+          }
         }
       }
     }
