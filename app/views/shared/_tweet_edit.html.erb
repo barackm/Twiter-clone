@@ -1,0 +1,21 @@
+<div class="compose-tweet-main-container">
+    <div class="tweet-modal">
+        <div class="header">
+            <%link_to home_path do %>
+            <div class="overlay">
+                <i class="bi bi-x-lg"></i>
+            </div>
+            <%end%>
+        </div>
+        <div class="input-yield">
+            <%= render "tweet_input" %>
+        </div>
+    </div>
+    <div>
+        <%link_to home_path do %>
+        <div class="overlay">
+            link
+        </div>
+        <%end%>
+    </div>
+</div>

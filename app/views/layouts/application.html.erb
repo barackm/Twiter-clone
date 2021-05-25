@@ -15,35 +15,25 @@
     <div class="application-root">
         <%
 =begin%>
-        <% if (!request.path == "/login" || !request.path == "/signup")%>
-        <%
-=end%>
         <section class="navigation-wrapper">
             <%= render "home/navbar" %>
         </section>
         <%
-=begin%>
-        <%end%>
-        <%
 =end%>
+
+        <%
+=begin%>
         <main class="main-app-wrapper">
             <div class="yield-app-main-wrapper">
                 <%= yield %>
             </div>
-            <%
-=begin%>
-            <% if (!request.path == "/login" || !request.path == "/signup")%>
-            <%
-=end%>
             <aside class="search-main-wrapper">
             </aside>
-            <%
-=begin%>
-            <%end%>
-            <%
-=end%>
         </main>
+        <%
+=end%>
 
+        <%= yield %>
     </div>
 </body>
 

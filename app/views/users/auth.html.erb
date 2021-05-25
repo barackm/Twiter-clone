@@ -14,9 +14,42 @@
                 <span>Join the conversation</span>
             </li>
         </ul>
+
+
     </div>
-    <div class="login-right-area">
-        <div class="content">
+    <div class="login-right-area" data-controller="auth">
+        <div class="content active" data-auth-target="loginInputs">
+            <div class="logo-container">
+                <i class="bi bi-twitter"></i>
+            </div>
+            <h3>
+                See what's happening in the world right now
+            </h3>
+            <h4>
+                Login to your account
+            </h4>
+
+            <div class="login-form-container">
+                <%= form_with do |form| %>
+                <div class="form-control">
+                    <%= form.text_field :username, placeholder:"Username", class:"login-field" %>
+                </div>
+                <div class="form-control">
+                    <%= form.text_field :password, placeholder:"Password", class:"login-field" %>
+                </div>
+                <div class="form-control submit">
+                    <div class="btn-wrapper">
+                        <%= form.submit "Login", class:"login-submit-btn" %>
+                    </div>
+                    <div class="signup-link-details">
+                        <span>Don't have an account ?</span>
+                        <a href="#" data-auth-target="signupBtn" id="signup" data-action="click -> auth#showSignup" class="signup-link">Sign up</a>
+                    </div>
+                </div>
+                <% end %>
+            </div>
+        </div>
+        <div class="content" data-auth-target="signupInputs">
             <div class="logo-container">
                 <i class="bi bi-twitter"></i>
             </div>
@@ -45,14 +78,15 @@
                     <div class="form-control submit">
                         <div class="btn-wrapper">
                             <%= form.submit "Signup", class:"login-submit-btn" %>
-
                         </div>
                         <div class="signup-link-details">
                             <span>Have an account ?</span>
-                            <%= link_to "Login", login_path, class:"signup-link" %>
+                            <a href="#" class="signup-link" data-auth-target="loginBtn" data-action="click -> auth#showLogin">Login</a>
                         </div>
                     </div>
                     <% end %>
                 </div>
             </div>
         </div>
+    </div>
+</div>

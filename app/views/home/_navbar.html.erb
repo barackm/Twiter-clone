@@ -17,7 +17,7 @@
                 <% end %>
             </li>
             <li>
-                <%= link_to root_path do %>
+                <%= link_to auth_path do %>
                 <div class="navlink-item-container">
                     <div class="navlink-icon">
                         <i class="bi bi-hash"></i>
@@ -101,9 +101,11 @@
                 <% end %>
             </li>
             <li>
+                <%= link_to compose_tweet_path do %>
                 <div class="tweet-btn">
                     Tweet
                 </div>
+                <% end %>
             </li>
         </ul>
     </div>

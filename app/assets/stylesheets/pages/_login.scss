@@ -49,7 +49,10 @@
 
     .content {
       width: 55%;
-
+      display: none;
+      &.active {
+        display: block;
+      }
       .logo-container {
         i {
           color: $primary;

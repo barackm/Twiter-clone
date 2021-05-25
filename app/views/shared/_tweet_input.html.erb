@@ -1,0 +1,27 @@
+<div class="new-tweet-container">
+    <div class="image-wrapper">
+        <div class="image-container">
+            <img src="https://pbs.twimg.com/profile_images/1387328259424194560/M2y5iSup_normal.jpg" alt="profile" />
+        </div>
+    </div>
+    <div class="input-details-main-wrapper">
+        <%= form_with model: tweet, url: "/tweets", method: :post do |form| %>
+        <div class="input-text-area-wrapper">
+            <%= form.text_area :text, placeholder:"What's happening?",class:"new-tweet-home-input-form" %>
+        </div>
+        <div class="form-controls">
+            <div class="tweet-form-media">
+                <div class="tweet-media-items">
+                    <div class="tweet-media-items">
+                        <i class="bi bi-image"></i>
+                    </div>
+                    <div class="tweet-media-items">
+                        <i class="bi bi-emoji-smile"></i>
+                    </div>
+                </div>
+                <%= form.submit "Tweet", class:"tweet-form-submit-btn" %>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>
