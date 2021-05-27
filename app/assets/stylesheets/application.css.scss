@@ -217,8 +217,13 @@
   &.notice {
     background-color: $notice;
     .flash-message-content {
-      color: $white;
+      color: #155724;
       font-size: 0.8rem;
+    }
+    .flash-message-close {
+      i {
+        color: #155724;
+      }
     }
   }
   &.alert {

@@ -154,3 +154,43 @@
     }
   }
 }
+
+.header-text {
+  display: flex;
+  align-items: center;
+  .header-back-arrow {
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-right: 1rem;
+    display: flex;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      font-size: 1.2rem;
+      color: $primary;
+      font-weight: bold;
+    }
+
+    &:hover {
+      background-color: lighten($primary, 40%);
+    }
+  }
+
+  .profile-user-info {
+    display: flex;
+    flex-direction: column;
+    h2 {
+      margin: 0;
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+    span {
+      font-size: 0.8rem;
+      font-weight: lighter;
+      margin: 0;
+      color: lighten($dark, 40%);
+    }
+  }
+}

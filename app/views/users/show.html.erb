@@ -7,7 +7,25 @@
             <header class="home-header-container">
                 <div class="image-text-wrapper">
                     <div class="header-text">
-                        Home
+                        <%= link_to root_path do %>
+                        <div class="header-back-arrow">
+                            <i class="bi bi-arrow-left"></i>
+                        </div>
+                        <%end %>
+                        <div class="profile-user-info">
+                            <h2> <%= @user_names[0].capitalize %>
+                                <% if @user_names[1] %>
+                                <%= @user_names[1].capitalize %>
+                                <%end %>
+                            </h2>
+                            <span class="profile-header-tweets-count">
+                                <%= @user.tweets.count %> <% if @user.tweets.count == 1%>
+                                Tweet
+                                <%else %>
+                                Tweets
+                                <%end %>
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <div class="header-top-tweets-icon">
@@ -19,14 +37,7 @@
                 </div>
             </header>
             <div class="home-content-area">
-                <div class="home-new-tweet-input-area">
-                    <%= render "shared/tweet_input", tweet: @tweet %>
-                </div>
-                <div class="tweets-main-container-area">
-                    <% @tweets.each do |tweet|%>
-                    <%= render "shared/tweet", images: ["https://images.pexels.com/photos/2397414/pexels-photo-2397414.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"],tweet: tweet, user_names: @user_names %>
-                    <%end%>
-                </div>
+            </div>
         </section>
     </div>
     <aside class="search-main-wrapper">
