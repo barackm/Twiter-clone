@@ -17,7 +17,7 @@
                 <% end %>
             </li>
             <li>
-                <%= link_to auth_path do %>
+                <%= link_to root_path do %>
                 <div class="navlink-item-container">
                     <div class="navlink-icon">
                         <i class="bi bi-hash"></i>
@@ -89,7 +89,7 @@
                 <% end %>
             </li>
             <li>
-                <%= link_to root_path do %>
+                <%= link_to destroy_user_session_path, method: :delete do %>
                 <div class="navlink-item-container see-more">
                     <div class="navlink-icon">
                         <i class="bi bi-three-dots"></i>
@@ -114,8 +114,8 @@
             <img src="https://pbs.twimg.com/profile_images/1387328259424194560/M2y5iSup_normal.jpg" alt="profile">
         </div>
         <div class="profile-names-area">
-            <h2>Barack mukele...</h2>
-            <span>@BarackMukele...</span>
+            <h2><%= current_user.name %></h2>
+            <span>@<%= current_user.username %></span>
         </div>
 
         <div class="profile-options">

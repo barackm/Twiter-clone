@@ -1,0 +1,10 @@
+<% flash.each do |type, msg| %>
+<div class="flash-message-main-container <%= type %>" data-controller="notification" data-notification-target="notificationContainer">
+    <div class="flash-message-content">
+        <%= msg %>
+    </div>
+    <a href="#" class="flash-message-close" data-notification-target="closeBtn" , data-action="click-> notification#closeNotification">
+        <i class="bi bi-x"></i>
+    </a>
+</div>
+<% end %>

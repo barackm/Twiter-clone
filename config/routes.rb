@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
   get '/', to: redirect('/home')
   root "home#index"
   get '/home', to: "home#index"
-  get '/auth', to: 'users#auth'
   post '/tweets', to: 'tweets#create'
   get '/compose/tweet', to: 'tweets#new'
   post 'users', to: 'users#create'

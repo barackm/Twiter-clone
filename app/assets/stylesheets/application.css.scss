@@ -192,3 +192,62 @@
     }
   }
 }
+
+.flash-message-main-container {
+  position: fixed;
+  top: 6px;
+  right: 6px;
+  width: auto;
+  padding: 0.1rem 0.7rem;
+  z-index: 999999;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  animation: animateOpenNotification 1s linear;
+  transform: translateX(0);
+
+  .flash-message-close {
+    cursor: pointer;
+    margin-left: 10px;
+    i {
+      color: $white;
+      font-size: 20px;
+    }
+  }
+  &.notice {
+    background-color: $notice;
+    .flash-message-content {
+      color: $white;
+      font-size: 0.8rem;
+    }
+  }
+  &.alert {
+    background-color: $alert;
+    .flash-message-content {
+      color: $white;
+      font-size: 0.8rem;
+    }
+  }
+
+  &.closed {
+    transform: translateX(100vw);
+    animation: animateCloseNotification 1s linear;
+  }
+}
+
+@keyframes animateCloseNotification {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100vw);
+  }
+}
+@keyframes animateOpenNotification {
+  from {
+    transform: translateX(100vw);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

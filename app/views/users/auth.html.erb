@@ -18,6 +18,10 @@
 
     </div>
     <div class="login-right-area" data-controller="auth">
+        <div class="error"><% @user.errors.each do |error| %>
+            <div><% p error %></div>
+            <% end %>
+        </div>
         <div class="content active" data-auth-target="loginInputs">
             <div class="logo-container">
                 <i class="bi bi-twitter"></i>
@@ -35,7 +39,11 @@
                     <%= form.text_field :username, placeholder:"Username", class:"login-field" %>
                 </div>
                 <div class="form-control">
-                    <%= form.text_field :password, placeholder:"Password", class:"login-field" %>
+                    <%= password_field_tag :password,nil, placeholder:"Password", class:"login-field" %>
+                </div>
+                <div class="form-control remember_me">
+                    <%= check_box_tag(:remember_me) %>
+                    <%= label_tag(:remember_me, "Remember me") %>
                 </div>
                 <div class="form-control submit">
                     <div class="btn-wrapper">
@@ -61,18 +69,43 @@
             </h4>
 
             <div class="login-form-container">
-                <%= form_with model: @user, url: "/users", method: :post do |form| %>
+                <%= form_with model: @user, url: "/auth", method: :post do |form| %>
+                <% p @user %>
                 <div class="form-control">
-                    <%= form.text_field :names, placeholder:"Name and Last name", class:"login-field" %>
+                    <%= form.text_field :name, placeholder:"Name and Last name", class:"login-field" %>
+                    <%if @user.errors[:name][0]%>
+                    <div class="input-error-message"> Name <%= @user.errors[:name][0] %></div>
+                    <%end %>
                 </div>
                 <div class="form-control">
                     <%= form.text_field :email, placeholder:"Email", class:"login-field" %>
+                    <%if @user.errors[:email][0]%>
+                    <div class="input-error-message">Email <%= @user.errors[:email][0] %></div>
+                    <%end %>
                 </div>
                 <div class="form-control">
-                    <%= form.text_field :username, placeholder:"Username", class:"login-field" %>
+                    <%= form.text_field :username, placeholder:"User name", class:"login-field" %>
+                    <%if @user.errors[:username][0]%>
+                    <div class="input-error-message">User name <%= @user.errors[:username][0] %></div>
+                    <%end %>
+
                 </div>
                 <div class="form-control">
-                    <%= form.text_field :password, placeholder:"Password", class:"login-field" %>
+                    <%= password_field_tag :password, nil , placeholder:"Password", class:"login-field" %>
+                    <%if @user.errors[:password][0]%>
+                    <div class="input-error-message">Password <%= @user.errors[:password][0] %></div>
+                    <%end %>
+
+                </div>
+                <div class="form-control">
+                    <%= password_field_tag :password_confirmation, nil , placeholder:"Confirm Password", class:"login-field" %>
+                    <%if @user.errors[:password_confirmation][0]%>
+                    <div class="input-error-message">Password <%= @user.errors[:password_confirmation][0] %></div>
+                    <%end %>
+                </div>
+                <div class="form-control remember_me">
+                    <%= check_box_tag(:remember_me) %>
+                    <%= label_tag(:remember_me, "Remember me") %>
                 </div>
                 <div>
                     <div class="form-control submit">

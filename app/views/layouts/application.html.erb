@@ -12,27 +12,8 @@
 </head>
 
 <body>
+    <%= render "shared/flash_messages" %>
     <div class="application-root">
-        <%
-=begin%>
-        <section class="navigation-wrapper">
-            <%= render "home/navbar" %>
-        </section>
-        <%
-=end%>
-
-        <%
-=begin%>
-        <main class="main-app-wrapper">
-            <div class="yield-app-main-wrapper">
-                <%= yield %>
-            </div>
-            <aside class="search-main-wrapper">
-            </aside>
-        </main>
-        <%
-=end%>
-
         <%= yield %>
     </div>
 </body>

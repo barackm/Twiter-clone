@@ -68,10 +68,44 @@
 
       .login-form-container {
         width: 100%;
+        .btn-wrapper {
+          input {
+            cursor: pointer;
+          }
+        }
         .form-control {
           display: flex;
           flex-direction: column;
           width: 100%;
+          input {
+            flex: 1;
+          }
+          .input-error-message {
+            color: $error;
+            font-size: 0.7rem;
+            padding-bottom: 6px;
+          }
+          .field_with_errors {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            input {
+              flex: 1;
+            }
+          }
+          &.remember_me {
+            display: flex;
+            flex-direction: row;
+            margin: 10px 0;
+            label {
+              font-size: 14px;
+              cursor: pointer;
+            }
+            input {
+              cursor: pointer;
+              flex: 0;
+            }
+          }
           .login-field {
             display: flex;
             background-color: transport;
@@ -81,7 +115,6 @@
             outline: none;
             margin: 5px 0;
             font-size: 14px;
-            //   flex: 1;
           }
 
           &.submit {

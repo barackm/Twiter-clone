@@ -1,0 +1,67 @@
+<div class="login-main-container">
+    <div class="login-left-area">
+        <ul>
+            <li>
+                <i class="bi bi-search"></i>
+                <span>Follow your interests</span>
+            </li>
+            <li>
+                <i class="bi bi-people"></i>
+                <span>Hear what people are talking about</span>
+            </li>
+            <li>
+                <i class="bi bi-chat"></i>
+                <span>Join the conversation</span>
+            </li>
+        </ul>
+    </div>
+    <div class="login-right-area" data-controller="auth">
+        <div class="content active" data-auth-target="loginInputs">
+            <div class="logo-container">
+                <i class="bi bi-twitter"></i>
+            </div>
+            <h3>
+                See what's happening in the world right now
+            </h3>
+            <h4>
+                Login to your account
+            </h4>
+
+            <div class="login-form-container">
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <div class="form-control">
+                    <%= f.text_field :login, autofocus: true, autocomplete: "email", placeholder:"Email or Username", class:"login-field" %>
+                    <%if @user.errors[:login][0]%>
+                    <div class="input-error-message">Email <%= @user.errors[:email][0] %></div>
+                    <%end %>
+                </div>
+                <div class="form-control">
+                    <%= f.password_field :password, autocomplete: "new-password", placeholder:"Password", class:"login-field" %>
+                    <%if @user.errors[:password][0]%>
+                    <div class="input-error-message">Password <%= @user.errors[:password][0] %></div>
+                    <%end %>
+
+                </div>
+                <% if devise_mapping.rememberable? %>
+                <div class="form-control remember_me">
+                    <%= check_box_tag(:remember_me) %>
+                    <%= label_tag(:remember_me, "Remember me") %>
+                </div>
+                <%end %>
+                <div>
+                    <div class="form-control submit">
+                        <div class="btn-wrapper">
+                            <%= f.submit "Sign In", class:"login-submit-btn" %>
+                        </div>
+                        <div class="signup-link-details">
+                            <span>Have an account ?</span>
+                            <%= link_to 'Sign Up', new_user_registration_path, class:"signup-link"  %>
+                        </div>
+                    </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
