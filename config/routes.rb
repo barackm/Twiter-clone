@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   get '/profile/:id', to: "users#show"
   devise_for :users
   resources :users, only: %i[show]
-  resources :tweets
+  resources :tweets do 
+    resources :comments
+  end
   root "tweets#index"
   get '/', to: redirect('/home')
   get '/home', to: "tweets#index"

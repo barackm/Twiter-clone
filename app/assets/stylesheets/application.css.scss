@@ -234,6 +234,14 @@
     }
   }
 
+  &.error {
+    background-color: $alert;
+    .flash-message-content {
+      color: $white;
+      font-size: 0.8rem;
+    }
+  }
+
   &.closed {
     transform: translateX(100vw);
     animation: animateCloseNotification 1s linear;

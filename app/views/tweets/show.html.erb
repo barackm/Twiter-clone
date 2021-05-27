@@ -84,7 +84,7 @@
                             <div class="footer-item">
                                 <i class="bi bi-chat"></i>
                                 <span>
-                                    10
+                                    <%= @tweet.comments.count %>
                                 </span>
                             </div>
                             <div class="footer-item">
@@ -111,11 +111,37 @@
                 </div>
             </div>
             <div class="tweet-details-comment-input">
-                <%= render "shared/tweet_input", tweet: @tweet %>
+                <div class="new-tweet-container">
+                    <div class="image-wrapper">
+                        <div class="image-container">
+                            <img src="https://pbs.twimg.com/profile_images/1387328259424194560/M2y5iSup_normal.jpg" alt="profile" />
+                        </div>
+                    </div>
+                    <div class="input-details-main-wrapper">
+                        <%= form_with(model: @comment, url: tweet_comments_path(@tweet)) do |form| %>
+                        <div class="input-text-area-wrapper">
+                            <%= form.text_area :text, placeholder:"Enter your comment",class:"new-tweet-home-input-form" %>
+                        </div>
+                        <div class="form-controls">
+                            <div class="tweet-form-media">
+                                <div class="tweet-media-items">
+                                    <div class="tweet-media-items">
+                                        <i class="bi bi-image"></i>
+                                    </div>
+                                    <div class="tweet-media-items">
+                                        <i class="bi bi-emoji-smile"></i>
+                                    </div>
+                                </div>
+                                <%= form.submit "Comment", class:"tweet-form-submit-btn" %>
+                            </div>
+                        </div>
+                        <% end %>
+                    </div>
+                </div>
             </div>
             <div class="tweet-details-comments-container">
-                <% [1,2,3].each do |comment| %>
-                <%= render "shared/comment", tweet: @tweet, images:[] %>
+                <% @tweet.comments.order("created_at DESC").each do |comment| %>
+                <%= render "shared/comment", tweet: comment, images:[] %>
                 <%end %>
             </div>
         </section>

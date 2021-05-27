@@ -6,6 +6,12 @@
 .tweet-details-comment-input {
   flex: 1;
   display: flex;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid $light;
+}
+
+.tweet-details-comments-container {
+  padding-bottom: 50px;
 }
 
 .new-tweet-container {

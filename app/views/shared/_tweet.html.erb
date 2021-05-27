@@ -57,12 +57,14 @@
                 <%end%>
             </div>
             <div class="tweet-footer">
+                <%= link_to tweet_path(tweet) do %>
                 <div class="footer-item">
                     <i class="bi bi-chat"></i>
                     <span>
-                        10
+                        <%= tweet.comments.count %>
                     </span>
                 </div>
+                <%end %>
                 <div class="footer-item">
                     <svg viewBox="0 0 24 24" aria-hidden="true" class="r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1hdv0qi">
                         <g>
