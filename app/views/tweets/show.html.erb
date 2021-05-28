@@ -48,8 +48,8 @@
                                     <span>@<%= @tweet.user.username %><span>
                                 </div>
 
-                                <div class="tweet-history">
-                                    30m
+                                <div class="tweet-history timestring">
+                                    <%= @tweet.created_at %>
                                 </div>
                             </div>
                             <div class="tweet-more-details">
@@ -62,19 +62,15 @@
                             <div class="tweet-text"> <%= @tweet.text%> </div>
                             <% if([1].size == 1) %>
                             <div class="tweet-images-container">
-                                <%= link_to root_path do %>
                                 <div class="tweet-image-item">
                                     <%= image_tag("https://images.pexels.com/photos/2397414/pexels-photo-2397414.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")%>
                                 </div>
-                                <%end %>
                             </div>
                             <% elsif(["https://images.pexels.com/photos/2397414/pexels-photo-2397414.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"].size == 2)%>
                             <div class="tweet-images-container two">
                                 <% ["https://images.pexels.com/photos/2397414/pexels-photo-2397414.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"].each do |image|%>
                                 <div class="tweet-image-item">
-                                    <%= link_to root_path do %>
                                     <%= image_tag(image) %>
-                                    <%end %>
                                 </div>
                                 <%end %>
                             </div>
@@ -97,12 +93,23 @@
                                     83
                                 </span>
                             </div>
-                            <div class="footer-item">
-                                <i class="bi bi-heart"></i>
+                            <%= link_to likes_path(:id => @tweet.id), method: :post do%>
+                            <% if @tweet.likes.any? {|tweet| tweet.user_id == current_user.id} %>
+                            <div class="footer-item liked">
+                                <i class="bi bi-heart-fill"></i>
                                 <span>
-                                    300
+                                    <%= @tweet.likes.count%>
                                 </span>
                             </div>
+                            <% else %>
+                            <div class="footer-item liked">
+                                <i class="bi bi-heart"></i>
+                                <span>
+                                    <%= @tweet.likes.count%>
+                                </span>
+                            </div>
+                            <% end %>
+                            <%end %>
                             <div class="footer-item">
                                 <i class="bi bi-upload"></i>
                             </div>
@@ -141,7 +148,7 @@
             </div>
             <div class="tweet-details-comments-container">
                 <% @tweet.comments.order("created_at DESC").each do |comment| %>
-                <%= render "shared/comment", tweet: comment, images:[] %>
+                <%= render "shared/comment", comment: comment, images:[] %>
                 <%end %>
             </div>
         </section>

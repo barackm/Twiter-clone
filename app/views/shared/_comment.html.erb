@@ -13,13 +13,13 @@
             <div class="tweet-header-main-container">
                 <div class="user-name-history">
                     <div class="user-name">
-                        <%= link_to user_path(current_user)  do %>
-                        <h3><%= tweet.user.name.split(" ")[0] %> <% if tweet.user.name.split(" ")[1] %>
-                            <%= tweet.user.name.split(" ")[1]%>
+                        <%= link_to user_path(comment.user)  do %>
+                        <h3><%= comment.user.name.split(" ")[0] %> <% if comment.user.name.split(" ")[1] %>
+                            <%= comment.user.name.split(" ")[1]%>
                             <%end %>
                         </h3>
                         <%end %>
-                        <span>@<%=tweet.user.username %><span>
+                        <span>@<%=comment.user.username %><span>
                     </div>
 
                     <div class="tweet-history">
@@ -33,24 +33,18 @@
                 </div>
             </div>
             <div class="tweet-body">
-                <%= link_to tweet_path(tweet) do %>
-                <div class="tweet-text"> <%= tweet.text%> </div>
-                <%end %>
+                <div class="tweet-text"> <%= comment.text%> </div>
                 <% if(images.size == 1) %>
                 <div class="tweet-images-container">
-                    <%= link_to tweet_path(tweet) do %>
                     <div class="tweet-image-item">
                         <%= image_tag(images[0])%>
                     </div>
-                    <%end %>
                 </div>
                 <% elsif(images.size == 2)%>
                 <div class="tweet-images-container two">
                     <% images.each do |image|%>
                     <div class="tweet-image-item">
-                        <%= link_to tweet_path(tweet) do %>
                         <%= image_tag(image) %>
-                        <%end %>
                     </div>
                     <%end %>
                 </div>

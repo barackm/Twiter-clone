@@ -75,12 +75,23 @@
                         83
                     </span>
                 </div>
-                <div class="footer-item">
-                    <i class="bi bi-heart"></i>
+                <%= link_to likes_path(:id => tweet.id), method: :post do%>
+                <% if tweet.likes.any? {|tweet| tweet.user_id == current_user.id} %>
+                <div class="footer-item liked">
+                    <i class="bi bi-heart-fill"></i>
                     <span>
-                        300
+                        <%= tweet.likes.count%>
                     </span>
                 </div>
+                <% else %>
+                <div class="footer-item liked">
+                    <i class="bi bi-heart"></i>
+                    <span>
+                        <%= tweet.likes.count%>
+                    </span>
+                </div>
+                <% end %>
+                <%end %>
                 <div class="footer-item">
                     <i class="bi bi-upload"></i>
                 </div>

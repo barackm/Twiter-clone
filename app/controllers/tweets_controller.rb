@@ -15,8 +15,10 @@ class TweetsController < ApplicationController
         @tweet = Tweet.new(tweet_params)
         @tweet.user_id = user.id 
         if @tweet.save
+            flash[:notice] = "Tweet added successfully."
             redirect_to home_path         
         else
+            flash[:error] = "Error The Tweet couldn't be saved"
             redirect_to home_path   
         end
     end
