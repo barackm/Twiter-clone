@@ -113,7 +113,7 @@
     overflow: hidden;
     padding: 0 1rem;
     padding-right: 0;
-    background-color: $light;
+    background-color: $lighter;
     &:focus-within {
       border-color: $primary;
       background-color: $white;
@@ -251,7 +251,7 @@
     display: flex;
     align-items: flex-end;
     .message-text {
-      background-color: $light;
+      background-color: $lighter;
       padding: 0.8rem 0.6rem;
       border-top-left-radius: 1rem;
       border-top-right-radius: 1rem;
@@ -302,7 +302,7 @@
     padding: 0.8rem;
     .contact-search-container {
       display: flex;
-      background-color: $light;
+      background-color: $lighter;
       padding: 0.8rem 1rem;
       border-radius: 2rem;
 

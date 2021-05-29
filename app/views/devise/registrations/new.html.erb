@@ -56,7 +56,6 @@
                     <%if @user.errors[:password][0]%>
                     <div class="input-error-message">Password <%= @user.errors[:password][0] %></div>
                     <%end %>
-
                 </div>
                 <div class="form-control">
                     <%= f.password_field :password_confirmation, autocomplete: "new-password" , placeholder:"Confirm Password", class:"login-field" %>

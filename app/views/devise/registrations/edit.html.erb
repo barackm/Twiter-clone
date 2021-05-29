@@ -1,43 +1,125 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<section class="navigation-wrapper">
+    <%= render "home/navbar" %>
+</section>
+<main class="main-app-wrapper">
+    <div class="yield-app-main-wrapper">
+        <section class="home-main-container">
+            <header class="home-header-container">
+                <div class="image-text-wrapper">
+                    <div class="header-text">
+                        <%= link_to :back do %>
+                        <div class="header-back-arrow">
+                            <i class="bi bi-arrow-left"></i>
+                        </div>
+                        <%end %>
+                        <div class="profile-user-info">
+                            <h2> <%= current_user.name.split[0].capitalize %>
+                                <% if current_user.name.split[1] %>
+                                <%= current_user.name.split[1].capitalize %>
+                                <%end %>
+                            </h2>
+                            <span class="profile-header-tweets-count">
+                                Edit Profile
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-top-tweets-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" class="r-13gxpu9 r-4qtqp9 r-yyyyoo r-1q142lx r-50lct3 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr r-1srniue">
+                        <g>
+                            <path d="M22.772 10.506l-5.618-2.192-2.16-6.5c-.102-.307-.39-.514-.712-.514s-.61.207-.712.513l-2.16 6.5-5.62 2.192c-.287.112-.477.39-.477.7s.19.585.478.698l5.62 2.192 2.16 6.5c.102.306.39.513.712.513s.61-.207.712-.513l2.16-6.5 5.62-2.192c.287-.112.477-.39.477-.7s-.19-.585-.478-.697zm-6.49 2.32c-.208.08-.37.25-.44.46l-1.56 4.695-1.56-4.693c-.07-.21-.23-.38-.438-.462l-4.155-1.62 4.154-1.622c.208-.08.37-.25.44-.462l1.56-4.693 1.56 4.694c.07.212.23.382.438.463l4.155 1.62-4.155 1.622zM6.663 3.812h-1.88V2.05c0-.414-.337-.75-.75-.75s-.75.336-.75.75v1.762H1.5c-.414 0-.75.336-.75.75s.336.75.75.75h1.782v1.762c0 .414.336.75.75.75s.75-.336.75-.75V5.312h1.88c.415 0 .75-.336.75-.75s-.335-.75-.75-.75zm2.535 15.622h-1.1v-1.016c0-.414-.335-.75-.75-.75s-.75.336-.75.75v1.016H5.57c-.414 0-.75.336-.75.75s.336.75.75.75H6.6v1.016c0 .414.335.75.75.75s.75-.336.75-.75v-1.016h1.098c.414 0 .75-.336.75-.75s-.336-.75-.75-.75z"></path>
+                        </g>
+                    </svg>
+                </div>
+            </header>
+            <div class="edit-profile-main-content">
+                <div class="profile-main-header-wrapper">
+                    <div class="profile-background-image">
+                        <%= image_tag("https://pbs.twimg.com/profile_banners/986945306657894400/1619599809/600x200")%>
+                        <div class="user-profile-image">
+                            <div class="user-image">
+                                <%= image_tag("https://pbs.twimg.com/profile_images/1387328259424194560/M2y5iSup_200x200.jpg")%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="inputs-container">
+                    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                    <div class="form-control">
+                        <%= f.label :email %>
+                        <%= f.email_field :email, autofocus: true, placeholder:"Email", class:"login-field" %>
+                        <%if @user.errors[:email][0]%>
+                        <div class="input-error-message"> Email <%= @user.errors[:name][0] %></div>
+                        <%end %>
+                    </div>
+                    <div class="form-control">
+                        <%= f.label :name %>
+                        <%= f.text_field :name, autofocus: true, placeholder:"Name and Last name", class:"login-field" %>
+                        <%if @user.errors[:name][0]%>
+                        <div class="input-error-message"> Name <%= @user.errors[:name][0] %></div>
+                        <%end %>
+                    </div>
+                    <div class="form-control">
+                        <%= f.label :username%>
+                        <%= f.text_field :username, autofocus: true, placeholder:"User name", class:"login-field" %>
+                        <%if @user.errors[:username][0]%>
+                        <div class="input-error-message"> User name <%= @user.errors[:name][0] %></div>
+                        <%end %>
+                    </div>
+                    <div class="form-control">
+                        <%= f.label :about %>
+                        <%= f.text_field :about, autofocus: true, placeholder:"Name and Last name", class:"login-field" %>
+                        <%if @user.errors[:about][0]%>
+                        <div class="input-error-message"> About <%= @user.errors[:about][0] %></div>
+                        <%end %>
+                    </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+                    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                    <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+                    <div class="form-control">
+                        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
+                        <%= f.password_field :password, autocomplete: "new-password",class:"login-field"  %>
+                        <% if @minimum_password_length %>
+                        <em><%= @minimum_password_length %> characters minimum</em>
+                        <% end %>
+                        <%if @user.errors[:password][0]%>
+                        <div class="input-error-message"> Password <%= @user.errors[:password][0] %></div>
+                        <%end %>
+                    </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+                    <div class="form-control">
+                        <%= f.label :password_confirmation %>
+                        <%= f.password_field :password_confirmation, autocomplete: "new-password",class:"login-field"  %>
+                        <%if @user.errors[:password_confirmation][0]%>
+                        <div class="input-error-message"> Confirm password <%= @user.errors[:password_confirmation][0] %></div>
+                        <%end %>
+                    </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
+                    <div class="form-control">
+                        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
+                        <%= f.password_field :current_password, autocomplete: "current-password",class:"login-field" %>
+                        <%if @user.errors[:current_password][0]%>
+                        <div class="input-error-message"> Current password <%= @user.errors[:current_password][0] %></div>
+                        <%end %>
+                    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+                    <div class="btn-wrapper">
+                        <%= f.submit "Update", class:"login-submit-btn" %>
+                    </div>
+                    <% end %>
+                    <div class="btn-wrapper"><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"login-submit-btn cancel" %>
+                    </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
+                </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
+            </div>
+        </section>
+    </div>
+    <aside class="search-main-wrapper">
+    </aside>
+</main>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<div class="overlay">
+</div>

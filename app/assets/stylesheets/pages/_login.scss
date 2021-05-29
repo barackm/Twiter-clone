@@ -73,88 +73,87 @@
             cursor: pointer;
           }
         }
-        .form-control {
-          display: flex;
-          flex-direction: column;
-          width: 100%;
-          input {
-            flex: 1;
-          }
-          .input-error-message {
-            color: $error;
-            font-size: 0.7rem;
-            padding-bottom: 6px;
-          }
-          .field_with_errors {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            input {
-              flex: 1;
-            }
-          }
-          &.remember_me {
-            display: flex;
-            flex-direction: row;
-            margin: 10px 0;
-            label {
-              font-size: 14px;
-              cursor: pointer;
-            }
-            input {
-              cursor: pointer;
-              flex: 0;
-            }
-          }
-          .login-field {
-            display: flex;
-            background-color: transport;
-            border: 1px solid #03446d4f;
-            padding: 10px 10px;
-            border-radius: 5px;
-            outline: none;
-            margin: 5px 0;
-            font-size: 14px;
-          }
-
-          &.submit {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            .login-submit-btn {
-              background-color: $primary;
-              border: none;
-              border-radius: 30px;
-              margin: 5px 0;
-              margin-top: 20px;
-              padding: 10px 30px;
-              color: $white;
-              font-weight: 100;
-              letter-spacing: 1px;
-              margin-right: 20px;
-            }
-
-            .signup-link-details {
-              padding-top: 10px;
-              span {
-                font-size: 12px;
-              }
-              a {
-                font-size: 13px;
-                text-decoration: none;
-                color: $primary;
-              }
-              .signup-link {
-              }
-            }
-          }
-        }
       }
     }
   }
 }
+.form-control {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  input {
+    flex: 1;
+  }
+  .input-error-message {
+    color: $error;
+    font-size: 0.7rem;
+    padding-bottom: 6px;
+  }
+  .field_with_errors {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    input {
+      flex: 1;
+    }
+  }
+  &.remember_me {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
+    label {
+      font-size: 14px;
+      cursor: pointer;
+    }
+    input {
+      cursor: pointer;
+      flex: 0;
+    }
+  }
+  .login-field {
+    display: flex;
+    background-color: transport;
+    border: 1px solid #03446d4f;
+    padding: 10px 10px;
+    border-radius: 5px;
+    outline: none;
+    margin: 5px 0;
+    font-size: 14px;
+  }
 
+  &.submit {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .login-submit-btn {
+      background-color: $primary;
+      border: none;
+      border-radius: 30px;
+      margin: 5px 0;
+      margin-top: 20px;
+      padding: 10px 30px;
+      color: $white;
+      font-weight: 100;
+      letter-spacing: 1px;
+      margin-right: 20px;
+    }
+
+    .signup-link-details {
+      padding-top: 10px;
+      span {
+        font-size: 12px;
+      }
+      a {
+        font-size: 13px;
+        text-decoration: none;
+        color: $primary;
+      }
+      .signup-link {
+      }
+    }
+  }
+}
 .header-text {
   display: flex;
   align-items: center;

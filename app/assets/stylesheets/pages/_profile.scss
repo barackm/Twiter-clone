@@ -204,3 +204,33 @@
     color: lighten($dark, 50%);
   }
 }
+
+.edit-profile-main-content {
+  border-right: 1px solid $light;
+  .input-error-message {
+    color: $error;
+    font-size: 0.7rem;
+    padding-bottom: 6px;
+  }
+  .inputs-container {
+    padding: 1rem;
+    padding-top: 4rem;
+    .login-submit-btn {
+      background-color: $primary;
+      border: none;
+      border-radius: 30px;
+      margin: 5px 0;
+      cursor: pointer;
+      margin-top: 20px;
+      padding: 10px 30px;
+      color: $white;
+      font-weight: bold;
+      letter-spacing: 0;
+      margin-right: 20px;
+      font-size: 0.9rem;
+      &.cancel {
+        background-color: $red;
+      }
+    }
+  }
+}
