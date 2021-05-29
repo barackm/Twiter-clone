@@ -1,0 +1,206 @@
+@import "colors";
+.profile-main-header-wrapper {
+  height: auto;
+  background-color: $white;
+  flex: 1;
+  .profile-background-image {
+    position: relative;
+    width: 100%;
+    display: flex;
+    height: 11rem;
+    background-color: $white;
+    img {
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+    .user-profile-image {
+      width: 8rem;
+      height: 8rem;
+      border-radius: 50%;
+      bottom: -4rem;
+      left: 1rem;
+      overflow: hidden;
+      border: 0.3rem solid $white;
+      cursor: pointer;
+      position: absolute;
+      .user-image {
+        width: 100%;
+        height: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  .profile-user-more-details {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem;
+
+    .user-bio-container {
+      margin: 1rem 0;
+      font-weight: 400;
+      font-size: $text-size;
+    }
+
+    .location-and-joined-details {
+      display: flex;
+      .user-location {
+        color: lighten($dark, 50%);
+        font-size: $text-size;
+      }
+
+      .user-joined-at {
+        font-size: $text-size;
+        margin-left: 1rem;
+        color: lighten($dark, 50%);
+      }
+    }
+
+    .following-information {
+      display: flex;
+      margin-top: 1rem;
+      color: lighten($dark, 50%);
+      .following {
+        font-size: $text-size;
+        strong {
+          color: $dark;
+        }
+      }
+      .followers {
+        margin-left: 1rem;
+        font-size: $text-size;
+        strong {
+          color: $dark;
+        }
+      }
+    }
+  }
+}
+.profile-tab-navigation {
+  background-color: $white;
+  border-bottom: 1px solid $light;
+  ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: auto;
+    li {
+      height: auto;
+      list-style: none;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      padding-top: 1.2rem;
+      padding-bottom: 1.2rem;
+      a {
+        cursor: pointer;
+        font-weight: bold;
+        color: lighten($dark, 30%);
+
+        &.active {
+          position: relative;
+          height: 100%;
+          &::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            bottom: -1.2rem;
+            height: 0.2rem;
+            background-color: $primary;
+            left: 0;
+            right: 0;
+          }
+        }
+      }
+      &:hover {
+        background-color: lighten($primary, 40%);
+        a {
+          color: $primary;
+        }
+      }
+    }
+  }
+}
+
+.profile-tweets-media-likes-main-container {
+  padding-bottom: 50px;
+  .tweet-item-main-container {
+    border: none;
+    border-bottom: 1px solid $light;
+  }
+}
+.follow-btn-whapper {
+  a {
+    text-decoration: none;
+  }
+  display: flex;
+  justify-content: space-between;
+  .btn {
+    cursor: pointer;
+    border: 0.1rem solid $primary;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    color: $primary;
+    &:hover {
+      background-color: lighten($primary, 40%);
+    }
+  }
+
+  &.follow {
+    .btn {
+      background-color: $primary;
+      color: $white;
+    }
+  }
+
+  &.following {
+    .btn {
+      border: none;
+      background-color: $primary;
+      color: $white;
+      position: relative;
+      &:hover {
+        visibility: hidden;
+        background-color: $red;
+        color: $white;
+
+        &::after {
+          visibility: visible;
+          background-color: $red;
+          position: absolute;
+          top: 0;
+          right: 0;
+          color: $white;
+          padding: 8px 20px;
+          border-radius: 30px;
+          font-weight: bold;
+          content: "Unfollow";
+        }
+      }
+    }
+  }
+}
+.user-names {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  h2 {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  h4 {
+    margin: 0;
+    margin-top: 3px;
+    font-weight: 400;
+    font-size: 1rem;
+    color: lighten($dark, 50%);
+  }
+}

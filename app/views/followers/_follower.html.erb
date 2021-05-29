@@ -1,0 +1,43 @@
+<div class="follower-main-container-item">
+    <div class="follower-item-image-wrapper">
+        <%= link_to user_path(user_follower) do %>
+        <div class="image">
+            <%= image_tag("https://pbs.twimg.com/profile_images/1387328259424194560/M2y5iSup_normal.jpg") %>
+        </div>
+        <% end %>
+    </div>
+    <div class="follower-details">
+        <div class="header">
+            <div class="follower-name">
+                <%= link_to user_path(user_follower) do %>
+                <h2> <%= user_follower.name %> </h2>
+                <% end %>
+                <h4>
+                    @<%= user_follower.name %>
+                </h4>
+            </div>
+            <% if followers.filter {|follower| follower.user_id == user_follower.id}.any? {|follower| follower.follower_id == current_user.id } %>
+            <div class="follow-btn-whapper following">
+                <%= link_to followers_path(:id => user_follower.id), method: :post do %>
+                <div class="btn">
+                    Following
+                </div>
+                <% end %>
+            </div>
+            <%else%>
+            <div class="follow-btn-whapper follow">
+                <%= link_to followers_path(:id => user_follower.id), method: :post do %>
+                <div class="btn">
+                    Follow
+                </div>
+                <% end %>
+            </div>
+            <%end%>
+        </div>
+        <div class="bio-container">
+            <div class="text">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+            </div>
+        </div>
+    </div>
+</div>

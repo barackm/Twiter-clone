@@ -1,0 +1,374 @@
+// Place all the styles related to the messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+@import "colors";
+.yield-app-main-wrapper.messages {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+  .home-main-container {
+    width: 40%;
+    height: 100vh;
+    border-right: 1px solid $light;
+    overflow-y: hidden;
+    position: relative;
+    .home-header-container {
+      background-color: $white;
+      position: absolute;
+      display: flex;
+      z-index: 999;
+      width: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+  .chat-room-main-container {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    .home-header-container {
+      background-color: $white;
+      position: absolute;
+      display: flex;
+      z-index: 999;
+      width: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      justify-content: space-between;
+      height: 55px;
+      border-bottom: 1px solid #c2c2c283;
+      background-color: #fff;
+      align-items: center;
+      top: 0;
+      .image-text-wrapper {
+        .header-text {
+          display: flex;
+          align-items: center;
+          .profile-user-info {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .user-image {
+              margin-right: 0.6rem;
+              .image {
+                width: 2.6rem;
+                height: 2.6rem;
+                border-radius: 50%;
+                overflow: hidden;
+                img {
+                  width: 100%;
+                  height: 100%;
+                }
+              }
+            }
+            .user-names {
+              display: flex;
+              flex-direction: column;
+              padding: 0;
+              h2 {
+                margin: 0;
+                font-size: 1.3rem;
+                font-weight: bold;
+              }
+              h4 {
+                margin: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.chat-room-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  //   width: 100%;
+  flex: 1;
+  right: 0;
+  border-top: 1px solid $light;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: flex-end;
+  background-color: $white;
+  z-index: 999;
+  .chat-input-container {
+    border-radius: 1rem;
+    border: 1px solid transparent;
+    min-height: 1.5rem;
+    flex: 1;
+    margin: 0 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+    padding: 0 1rem;
+    padding-right: 0;
+    background-color: $light;
+    &:focus-within {
+      border-color: $primary;
+      background-color: $white;
+    }
+
+    .emojie {
+      width: 1.5rem;
+      height: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      margin-right: 0.4rem;
+      margin-left: 0.4rem;
+      i {
+        color: $primary;
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.reach-text-editor-main-container {
+  width: 92%;
+  flex: 1;
+}
+
+.send-message-btn {
+  cursor: pointer;
+  padding-bottom: 0.2rem;
+  i {
+    color: $primary;
+  }
+  svg {
+    width: 1.3rem;
+    height: 1.3rem;
+    fill: $primary;
+    path {
+      fill: $primary;
+    }
+  }
+}
+
+.chat-messages-container-area {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+  overflow-y: auto;
+  padding-top: 3rem;
+
+  .header {
+    .header-content {
+      border-bottom: 1px solid $light;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1rem;
+      padding: 1rem 1rem;
+      cursor: pointer;
+      &:hover {
+        background-color: lighten($primary, 45%);
+      }
+      .user {
+        display: flex;
+        align-items: center;
+        h2 {
+          margin: 0;
+          font-size: 1.1rem;
+          font-weight: bold;
+          margin-right: 0.5rem;
+        }
+        h4 {
+          margin: 0;
+          margin-top: 3px;
+          font-weight: 400;
+          font-size: 0.9rem;
+          color: gray;
+        }
+      }
+      .bio {
+        margin-top: 0.5rem;
+        font-size: $text-size;
+        text-align: center;
+      }
+
+      .followers-info {
+        display: flex;
+        .following {
+          margin-right: 0.5rem;
+          p {
+            strong {
+              color: $dark;
+            }
+            font-size: $text-size;
+            color: lighten($dark, 40%);
+          }
+        }
+      }
+
+      .joined-at {
+        color: lighten($dark, 40%);
+        strong {
+          font-size: $text-size;
+        }
+      }
+    }
+  }
+}
+.messages {
+  padding-bottom: 4rem;
+}
+
+.message-main-container {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+
+  .user-image {
+    margin-right: 1rem;
+    .image {
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 50%;
+      overflow: hidden;
+      cursor: pointer;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .message-content-user {
+    display: flex;
+    align-items: flex-end;
+    .message-text {
+      background-color: $light;
+      padding: 0.8rem 0.6rem;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+      cursor: default;
+      max-width: 60%;
+
+      .text {
+        font-size: $text-size;
+      }
+    }
+  }
+  .message-history {
+    margin-left: 3.4rem;
+    font-size: 0.8rem;
+    color: lighten($dark, 45%);
+    font-weight: 400;
+  }
+
+  &.current {
+    align-items: flex-end;
+    .user-image {
+      display: none;
+    }
+    .message-text {
+      background-color: $primary;
+      border-radius: none;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+      border-bottom-left-radius: 1rem;
+      border-bottom-right-radius: 0;
+      margin-left: auto;
+      .text {
+        color: $white;
+      }
+    }
+  }
+}
+
+.contacts-main-container {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding-top: 55px;
+  padding-bottom: 5rem;
+  .header {
+    border-bottom: 1px solid $light;
+    padding: 0.8rem;
+    .contact-search-container {
+      display: flex;
+      background-color: $light;
+      padding: 0.8rem 1rem;
+      border-radius: 2rem;
+
+      i {
+        margin-right: 0.6rem;
+      }
+      input {
+        flex: 1;
+        border: none;
+        outline: none;
+        font-size: $text-size;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.chat-contact-item-container {
+  display: flex;
+  padding: 1rem 0.5rem;
+  border-bottom: 1px solid $light;
+  cursor: pointer;
+  &:hover {
+    background-color: lighten($primary, 45%);
+  }
+  .contact-image {
+    margin-right: 0.6rem;
+    .image {
+      width: 2.6rem;
+      height: 2.6rem;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+  }
+  .contact-details {
+    padding-right: 1rem;
+
+    .name-date {
+      display: flex;
+      .names {
+        display: flex;
+        align-items: center;
+        h2 {
+          margin: 0;
+          font-size: 1rem;
+          font-weight: bold;
+          margin-right: 0.5rem;
+        }
+        h4 {
+          margin: 0;
+          font-weight: 300;
+          font-size: 1rem;
+          color: rgb(177, 167, 167);
+        }
+      }
+    }
+    .last-message {
+      font-size: $text-size;
+      padding-top: 0.3rem;
+    }
+    .last-message-history {
+      span {
+        font-weight: 300;
+        color: rgb(177, 167, 167);
+        font-size: 0.5rem !important;
+      }
+    }
+  }
+}

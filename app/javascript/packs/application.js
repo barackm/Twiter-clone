@@ -13,12 +13,6 @@ import "controllers";
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
-(function () {
-  "use strict";
 
-  $(document).ready(function () {
-    $(".timestring").each(function () {
-      this.textContent = moment(this.textContent).format("lll");
-    });
-  });
-})();
+require("trix")
+require("@rails/actiontext")

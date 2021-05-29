@@ -2,7 +2,10 @@ class TweetsController < ApplicationController
     def index 
         @new_tweet = Tweet.new
         @users = User.all
+        followers = current_user.followers
         @tweets = Tweet.all.order("created_at DESC")
+        @tweets = @tweets.filter {|tweet| followers.any? {|follower| follower.follower_id == tweet.user_id} || tweet.user_id == current_user.id }
+       
     end
       
     def new 

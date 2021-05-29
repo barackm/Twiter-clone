@@ -9,12 +9,31 @@
   .home-header-container {
     position: sticky;
     display: flex;
+    z-index: 999;
     justify-content: space-between;
     height: 55px;
     border-bottom: 1px solid $light;
     background-color: $white;
     align-items: center;
     top: 0;
+
+    &.followers {
+      // border: none;
+      width: 100%;
+      flex-direction: column;
+      .header-top-tweets-icon {
+        display: none;
+      }
+      .followers-header {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        padding: 5px 0;
+      }
+      .profile-tab-navigation {
+        width: 100%;
+      }
+    }
     .image-text-wrapper {
       margin-left: 15px;
       .header-text {

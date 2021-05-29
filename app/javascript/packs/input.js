@@ -7,11 +7,11 @@ var autoExpand = function (field) {
 
   // Calculate the height
   var height =
-    parseInt(computed.getPropertyValue("border-top-width"), 10) +
-    parseInt(computed.getPropertyValue("padding-top"), 10) +
+    parseInt(computed.getPropertyValue("border-top-width"), 5) +
+    parseInt(computed.getPropertyValue("padding-top"), 5) +
     field.scrollHeight +
-    parseInt(computed.getPropertyValue("padding-bottom"), 10) +
-    parseInt(computed.getPropertyValue("border-bottom-width"), 10);
+    parseInt(computed.getPropertyValue("padding-bottom"), 5) +
+    parseInt(computed.getPropertyValue("border-bottom-width"), 5);
 
   field.style.height = height + "px";
 };

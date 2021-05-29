@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :tweets
   has_many :likes
+  has_many :followers
   attr_writer :login 
   validate :validate_username
 

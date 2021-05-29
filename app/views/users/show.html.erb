@@ -37,6 +37,122 @@
                 </div>
             </header>
             <div class="home-content-area">
+                <div class="profile-main-header-wrapper">
+                    <div class="profile-background-image">
+                        <%= image_tag("https://pbs.twimg.com/profile_banners/986945306657894400/1619599809/600x200")%>
+                        <div class="user-profile-image">
+                            <div class="user-image">
+                                <%= image_tag("https://pbs.twimg.com/profile_images/1387328259424194560/M2y5iSup_200x200.jpg")%>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-user-more-details">
+                        <% if(current_user.id == @user.id)%>
+                        <div class="follow-btn-whapper">
+                            <div>
+                            </div>
+                            <div class="btn">
+                                Edit Profile
+                            </div>
+                        </div>
+                        <%elsif @user.followers.any? {|f| f.follower_id == current_user.id} %>
+                        <div class="follow-btn-whapper following">
+                            <div>
+                            </div>
+                            <%= link_to followers_path(:id => @user.id), method: :post do %>
+                            <div class="btn">
+                                Following
+                            </div>
+                            <% end %>
+                        </div>
+                        <%else%>
+                        <div class="follow-btn-whapper follow">
+                            <div>
+                            </div>
+                            <%= link_to followers_path(:id => @user.id), method: :post do %>
+                            <div class="btn">
+                                Follow
+                            </div>
+                            <% end %>
+
+                        </div>
+                        <%end%>
+                        <div class="user-names">
+                            <h2> <%= @user_names[0].capitalize %>
+                                <% if @user_names[1] %>
+                                <%= @user_names[1].capitalize %>
+                                <%end %>
+                            </h2>
+                            <h4>@<%= @user_names[0].capitalize %><% if @user_names[1] %><%= @user_names[1].capitalize %>
+                                <%end %></h4>
+                        </div>
+
+                        <div class="user-bio-container">
+                            Hi, I am Baraka Mukelenga, a Student at Microverse, I'm a Full Stack Developer interested in different technologies and React Js lover.
+                        </div>
+
+                        <div class="location-and-joined-details">
+                            <div class="user-location">
+                                <i class="bi bi-geo-alt"></i> République du Rwanda
+                            </div>
+                            <div class="user-joined-at">
+                                <i class="bi bi-calendar3"></i> Joined April 2018
+                            </div>
+                        </div>
+
+                        <div class="following-information">
+                            <%= link_to follower_path(:id => @user.id) do %>
+                            <div class="following">
+                                <strong>
+                                    <%= @following %>
+                                </strong>
+                                Following
+                            </div>
+                            <%end%>
+                            <%= link_to follower_path(:id => @user.id) do %>
+                            <div class="followers">
+                                <strong>
+                                    <%= @user.followers.count%>
+                                </strong>
+                                Followers
+                            </div>
+                            <%end%>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-tab-navigation">
+                    <ul>
+                        <li>
+                            <a class="active">
+                                Tweet
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                Tweets & replies
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                Media
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                Likes
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="profile-tweets-media-likes-main-container">
+                <div class="profile-user-tweets-container">
+                    <% @user.tweets.each do |tweet| %>
+                    <%= render "shared/tweet", tweet:tweet, images:[] %>
+                    <% end %>
+                </div>
             </div>
         </section>
     </div>
@@ -46,4 +162,3 @@
 
 <div class="overlay">
 </div>
-<%= javascript_pack_tag 'input' %>
