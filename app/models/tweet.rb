@@ -3,4 +3,5 @@ class Tweet < ApplicationRecord
     has_many :comments
     has_many :likes
     validates :text, presence: true
+    has_one_attached :cover_picture
 end

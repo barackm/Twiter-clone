@@ -29,7 +29,7 @@
                 <% end %>
             </li>
             <li>
-                <%= link_to root_path do %>
+                <%= link_to notifications_path do %>
                 <div class="navlink-item-container">
                     <div class="navlink-icon">
                         <i class="bi bi-bell"></i>
@@ -52,30 +52,7 @@
                 </div>
                 <% end %>
             </li>
-            <li>
-                <%= link_to root_path do %>
-                <div class="navlink-item-container">
-                    <div class="navlink-icon">
-                        <i class="bi bi-bookmark"></i>
-                    </div>
-                    <div class="navlink-text">
-                        Bookmarks
-                    </div>
-                </div>
-                <% end %>
-            </li>
-            <li>
-                <%= link_to root_path do %>
-                <div class="navlink-item-container">
-                    <div class="navlink-icon">
-                        <i class="bi bi-card-checklist"></i>
-                    </div>
-                    <div class="navlink-text">
-                        Lists
-                    </div>
-                </div>
-                <% end %>
-            </li>
+
             <li>
                 <%= link_to user_path(current_user) do %>
                 <div class="navlink-item-container">
@@ -90,12 +67,12 @@
             </li>
             <li>
                 <%= link_to destroy_user_session_path, method: :delete do %>
-                <div class="navlink-item-container see-more">
+                <div class="navlink-item-container">
                     <div class="navlink-icon">
-                        <i class="bi bi-three-dots"></i>
+                        <i class="bi bi-box-arrow-right"></i>
                     </div>
                     <div class="navlink-text">
-                        More
+                        Logout
                     </div>
                 </div>
                 <% end %>
@@ -119,7 +96,11 @@
         </div>
 
         <div class="profile-options">
+            <%
+=begin%>
             <i class="bi bi-three-dots"></i>
+            <%
+=end%>
         </div>
     </div>
 </nav>

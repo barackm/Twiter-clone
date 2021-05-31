@@ -31,7 +31,7 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise', '~> 4.2'
 gem 'momentjs-rails'
-
+gem 'world-flags', github: 'kristianmandrup/world-flags', branch: 'master'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

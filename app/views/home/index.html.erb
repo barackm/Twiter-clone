@@ -24,7 +24,7 @@
                 </div>
                 <div class="tweets-main-container-area">
                     <% @tweets.each do |tweet|%>
-                    <%= render "shared/tweet", images: ["https://images.pexels.com/photos/2397414/pexels-photo-2397414.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"],tweet: tweet, user_names: @user_names %>
+                    <%= render "shared/tweet", images: tweet.cover_image ? [tweet.image] : [] ,tweet: tweet, user_names: @user_names %>
                     <%end%>
                 </div>
         </section>

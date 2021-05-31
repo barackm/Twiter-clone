@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'notifications/index'
   get '/profile/:id', to: "users#show"
   get '/', to: redirect('/home')
   get '/home', to: "tweets#index"
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   resources :followers, only: [:create, :show]
   resources :likes, only: %i[create]
   resources :messages
+  resources :notifications
   root "tweets#index"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

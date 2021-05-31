@@ -7,7 +7,10 @@
             <header class="home-header-container">
                 <div class="image-text-wrapper">
                     <div class="header-text">
-                        Home
+                        <div class="profile-user-info">
+                            <h2> Notifications
+                            </h2>
+                        </div>
                     </div>
                 </div>
                 <div class="header-top-tweets-icon">
@@ -19,14 +22,9 @@
                 </div>
             </header>
             <div class="home-content-area">
-                <div class="home-new-tweet-input-area">
-                    <%= render "shared/tweet_input", tweet: @new_tweet %>
-                </div>
-                <div class="tweets-main-container-area">
-                    <% @tweets.each do |tweet|%>
-                    <%= render "shared/tweet", images:  tweet.cover_picture ? [tweet.cover_picture] : [],tweet: tweet %>
-                    <%end%>
-                </div>
+
+            </div>
+
         </section>
     </div>
     <aside class="search-main-wrapper">
@@ -35,4 +33,3 @@
 
 <div class="overlay">
 </div>
-<%= javascript_pack_tag 'input' %>
