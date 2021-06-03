@@ -9,10 +9,15 @@ import * as ActiveStorage from "@rails/activestorage";
 import "channels";
 import "controllers";
 //= require moment
+//= require rails-timeago
+//= require rails-timeago-all
+//= require jquery
+//= require rails-timeago
+//= require rails-timeago-all
 
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
 
-require("trix")
-require("@rails/actiontext")
+require("trix");
+require("@rails/actiontext");

@@ -1,19 +1,13 @@
 class LikesController < ApplicationController
     def create
-        like = Like.find_by(user_id: current_user.id)
         tweet = Tweet.find(params[:id])
-        # Binding.pry
+        like = Like.find_by(user_id: current_user.id, tweet_id:params[:id])
+
         if(like) 
             like.destroy
             redirect_to tweet_path(tweet)
-            # if current_page?(tweet_path(tweet))
-            # elsif current_page?(tweets_path)
-            #     redirect_to tweets_path
-            # end
         else 
-            like = Like.new 
-            like.user_id = current_user.id
-            like.tweet_id = tweet.id
+            like = tweet.likes.build(user_id: current_user.id)
 
             if(like.save)
                 redirect_to tweet_path(tweet)
@@ -22,8 +16,5 @@ class LikesController < ApplicationController
                 redirect_to tweet_path(tweet)
             end
         end
-        
-        
-
     end
 end

@@ -60,19 +60,11 @@
                         </div>
                         <div class="tweet-body">
                             <div class="tweet-text"> <%= @tweet.text%> </div>
-                            <% if([1].size == 1) %>
+                            <% if(@tweet.cover_picture.attached?) %>
                             <div class="tweet-images-container">
                                 <div class="tweet-image-item">
-                                    <%= image_tag("https://images.pexels.com/photos/2397414/pexels-photo-2397414.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")%>
+                                    <%= image_tag(@tweet.cover_picture)%>
                                 </div>
-                            </div>
-                            <% elsif(["https://images.pexels.com/photos/2397414/pexels-photo-2397414.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"].size == 2)%>
-                            <div class="tweet-images-container two">
-                                <% ["https://images.pexels.com/photos/2397414/pexels-photo-2397414.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"].each do |image|%>
-                                <div class="tweet-image-item">
-                                    <%= image_tag(image) %>
-                                </div>
-                                <%end %>
                             </div>
                             <%end%>
                         </div>

@@ -23,7 +23,7 @@
                     </div>
 
                     <div class="tweet-history">
-                        30m
+                        <%= timeago_tag tweet.created_at, limit: 1.minute.ago %>
                     </div>
                 </div>
                 <div class="tweet-more-details">
@@ -36,7 +36,7 @@
                 <%= link_to tweet_path(tweet) do %>
                 <div class="tweet-text"> <%= tweet.text%> </div>
                 <%end %>
-                <% if(images.size == 1) %>
+                <% if(images.length == 1) %>
                 <div class="tweet-images-container">
                     <%= link_to tweet_path(tweet) do %>
                     <div class="tweet-image-item">

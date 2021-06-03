@@ -48,14 +48,27 @@
 
     .location-and-joined-details {
       display: flex;
+      flex-wrap: wrap;
+      align-items: center;
       .user-location {
         color: lighten($dark, 50%);
         font-size: $text-size;
+        margin-right: 1rem;
+        margin-top: 0.5rem;
+        i {
+          font-size: 1.2rem;
+        }
+        a {
+          color: $primary;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
       }
 
       .user-joined-at {
+        margin-top: 0.5rem;
         font-size: $text-size;
-        margin-left: 1rem;
         color: lighten($dark, 50%);
       }
     }

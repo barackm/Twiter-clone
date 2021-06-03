@@ -90,15 +90,22 @@
                         </div>
 
                         <div class="user-bio-container">
-                            Hi, I am Baraka Mukelenga, a Student at Microverse, I'm a Full Stack Developer interested in different technologies and React Js lover.
+                            <%= @user.about %>
                         </div>
 
                         <div class="location-and-joined-details">
+                            <%if @user.location %>
                             <div class="user-location">
-                                <i class="bi bi-geo-alt"></i> République du Rwanda
+                                <i class="bi bi-geo-alt"></i> <%= @user.location %>
                             </div>
+                            <%end %>
+                            <%if @user.website %>
+                            <div class="user-location">
+                                <i class="bi bi-link-45deg"></i> <%= link_to @user.website, URI::HTTP.build({:host => @user.website}).to_s, :target => "_blank" %>
+                            </div>
+                            <%end %>
                             <div class="user-joined-at">
-                                <i class="bi bi-calendar3"></i> Joined April 2018
+                                <i class="bi bi-calendar3"></i> Joined <%= timeago_tag @user.created_at, limit: 1.minute.ago %>
                             </div>
                         </div>
 
@@ -152,7 +159,7 @@
             <div class="profile-tweets-media-likes-main-container">
                 <div class="profile-user-tweets-container">
                     <% @user.tweets.each do |tweet| %>
-                    <%= render "shared/tweet", tweet:tweet, images:[] %>
+                    <%= render "shared/tweet", tweet:tweet, images: tweet.cover_picture.attached? ? [tweet.cover_picture]: [] %>
                     <% end %>
                 </div>
             </div>

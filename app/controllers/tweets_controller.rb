@@ -5,7 +5,6 @@ class TweetsController < ApplicationController
         followers = current_user.followers
         @tweets = Tweet.all.order("created_at DESC")
         @tweets = @tweets.filter {|tweet| followers.any? {|follower| follower.follower_id == tweet.user_id} || tweet.user_id == current_user.id }
-       
     end
       
     def new 
@@ -14,9 +13,7 @@ class TweetsController < ApplicationController
 
     def create
         user = User.find(current_user.id)
-        # user.Tweet.new(tweet_params)
-        @tweet = Tweet.new(tweet_params)
-        @tweet.user_id = user.id 
+        @tweet = user.tweets.build(tweet_params)
         if @tweet.save
             flash[:notice] = "Tweet added successfully."
             redirect_to home_path         

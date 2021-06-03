@@ -68,9 +68,32 @@
                     </div>
                     <div class="form-control">
                         <%= f.label :about %>
-                        <%= f.text_field :about, autofocus: true, placeholder:"Name and Last name", class:"login-field" %>
+                        <%= f.text_area :about, placeholder:"About", size: "70x5", maxlength:"300", class:"login-field" %>
                         <%if @user.errors[:about][0]%>
                         <div class="input-error-message"> About <%= @user.errors[:about][0] %></div>
+                        <%end %>
+                    </div>
+
+                    <div class="form-control">
+                        <%= f.label :location %>
+                        <%= f.text_field :location,placeholder:"Location", class:"login-field" %>
+                        <%if @user.errors[:location][0]%>
+                        <div class="input-error-message"> Location <%= @user.errors[:location][0] %></div>
+                        <%end %>
+                    </div>
+
+                    <div class="form-control">
+                        <%= f.label :website %>
+                        <%= f.text_field :website,placeholder:"Ex: domain.com", class:"login-field" %>
+                        <%if @user.errors[:website][0]%>
+                        <div class="input-error-message"> Website <%= @user.errors[:website][0] %></div>
+                        <%end %>
+                    </div>
+                    <div class="form-control">
+                        <%= f.label :birthdate %>
+                        <%= f.date_field :birthdate, class:"login-field" %>
+                        <%if @user.errors[:birthdate][0]%>
+                        <div class="input-error-message"> Birthdate <%= @user.errors[:birthdate][0] %></div>
                         <%end %>
                     </div>
 

@@ -7,7 +7,11 @@
   background-color: $white;
   border-top: 1px solid $light;
   padding: 10px 20px;
-
+  &.comment {
+    &:last-child {
+      border-bottom: 1px solid $light;
+    }
+  }
   &:hover {
     background-color: darken($white-light, 0.1%);
   }
