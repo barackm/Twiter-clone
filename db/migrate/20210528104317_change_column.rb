@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChangeColumn < ActiveRecord::Migration[6.1]
   def change
     change_column :followers, :follower_id, :integer
